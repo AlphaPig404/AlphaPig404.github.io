@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-28T03:46:58.206Z</updated>
+  <updated>2016-10-29T08:56:03.488Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/10/29/hello%20world/"/>
+    <id>http://yoursite.com/2016/10/29/hello world/</id>
+    <published>2016-10-29T07:35:05.740Z</published>
+    <updated>2016-10-29T08:56:03.488Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<h2 id="title：Hello-World-Again"><a href="#title：Hello-World-Again" class="headerlink" title="title：Hello World Again"></a>title：Hello World Again</h2><p><img src="http://www.lagou.com/image1/M00/00/52/CgYXBlTUXRSARbgcAAB602-JKS4096.gif" alt="hello world">  </p>
+<p>前天在研究Github的时候，发现Github提供免费的服务器可以用来搭建网站，然后就有了捣鼓一个博客的想法。经过两天的折腾（爬坑），解决了各种没有预料的问题，把它弄出来了后，还真有点儿打开新世界的大门的感觉…  </p>
+<p>以后这里主要想用来记录一些生活中的事情和自己对生活的感悟，毕竟这种博客的隐秘性比较好(^o^)/~，因而没有加载博客评论的部分。希望不小心“串进门”的童鞋不要怪责。  </p>
+<p>最后要感谢提供这个主题的<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Litten</a>童鞋，个人比较喜欢这种风格。目前只是用了一下框架，有些比如相册的功能并没有加载过来。等有时间了再来好好“装修”一下，给自己挖个坑先…</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;h2 id=&quot;title：Hello-World-Again&quot;&gt;&lt;a href=&quot;#title：Hello-World-Again&quot; class=&quot;headerlink&quot; title=&quot;title：Hello World Again&quot;&gt;&lt;/a&gt;title：Hello 
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
