@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-30T12:06:43.953Z</updated>
+  <updated>2016-10-30T12:37:04.694Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,20 +16,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/2016/10/30/test/"/>
-    <id>http://yoursite.com/2016/10/30/test/</id>
-    <published>2016-10-30T12:03:00.607Z</published>
-    <updated>2016-10-30T12:06:43.953Z</updated>
+    <title>Hello World Again</title>
+    <link href="http://yoursite.com/2016/10/29/Hello-World-Again/"/>
+    <id>http://yoursite.com/2016/10/29/Hello-World-Again/</id>
+    <published>2016-10-29T09:21:54.179Z</published>
+    <updated>2016-10-30T12:37:04.694Z</updated>
     
-    <content type="html"><![CDATA[<p>前天在研究Github的时候，发现Github提供免费的服务器可以用来搭建网站，然后就有了捣鼓一个博客的想法。经过两天的折腾（爬坑），解决了各种没有预料的问题，把它弄出来了后，还真有点儿打开新世界的大门的感觉… </p>
-<p>以后这里主要想用来记录一些生活中的事情和自己对生活的感悟，毕竟这种博客的隐秘性比较好(^o^)/~，因而没有加载博客评论的部分。希望不小心“串进门”的童鞋不要怪责。 <a id="more"></a></p>
-<p>最后要感谢提供这个主题的Litten童鞋，个人比较喜欢这种风格。目前只是用了一下框架，有些比如相册的功能并没有加载过来。等有时间了再来好好“装修”一下，给自己挖个坑先… </p>
+    <content type="html"><![CDATA[<p>前天在研究Github的时候，发现Github提供免费的服务器可以用来搭建网站，然后就有了捣鼓一个博客的想法。经过两天的折腾（爬坑），解决了各种没有预料的问题，把它弄出来了后，还真有点儿打开新世界的大门的感觉…  </p>
+<p>以后这里主要想用来记录一些生活中的事情和自己对生活的感悟，毕竟这种博客的隐秘性比较好(^o^)/~，因而没有加载博客评论的部分。希望不小心“串进门”的童鞋不要怪责。<a id="more"></a>  </p>
+<p>最后要感谢提供这个主题的<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Litten</a>童鞋，个人比较喜欢这种风格。目前只是用了一下框架，有些比如相册的功能并没有加载过来。等有时间了再来好好“装修”一下，给自己挖个坑先…  </p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;前天在研究Github的时候，发现Github提供免费的服务器可以用来搭建网站，然后就有了捣鼓一个博客的想法。经过两天的折腾（爬坑），解决了各种没有预料的问题，把它弄出来了后，还真有点儿打开新世界的大门的感觉… &lt;/p&gt;
+      &lt;p&gt;前天在研究Github的时候，发现Github提供免费的服务器可以用来搭建网站，然后就有了捣鼓一个博客的想法。经过两天的折腾（爬坑），解决了各种没有预料的问题，把它弄出来了后，还真有点儿打开新世界的大门的感觉…  &lt;/p&gt;
 &lt;p&gt;以后这里主要想用来记录一些生活中的事情和自己对生活的感悟，毕竟这种博客的隐秘性比较好(^o^)/~，因而没有加载博客评论的部分。希望不小心“串进门”的童鞋不要怪责。
     
     </summary>
@@ -37,27 +37,7 @@
     
       <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Hello World Again</title>
-    <link href="http://yoursite.com/2016/10/29/Hello-World-Again/"/>
-    <id>http://yoursite.com/2016/10/29/Hello-World-Again/</id>
-    <published>2016-10-29T09:21:54.179Z</published>
-    <updated>2016-10-29T10:27:00.260Z</updated>
-    
-    <content type="html"><![CDATA[<p>前天在研究Github的时候，发现Github提供免费的服务器可以用来搭建网站，然后就有了捣鼓一个博客的想法。经过两天的折腾（爬坑），解决了各种没有预料的问题，把它弄出来了后，还真有点儿打开新世界的大门的感觉…  </p>
-<p>以后这里主要想用来记录一些生活中的事情和自己对生活的感悟，毕竟这种博客的隐秘性比较好(^o^)/~，因而没有加载博客评论的部分。希望不小心“串进门”的童鞋不要怪责。  </p>
-<p>最后要感谢提供这个主题的<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Litten</a>童鞋，个人比较喜欢这种风格。目前只是用了一下框架，有些比如相册的功能并没有加载过来。等有时间了再来好好“装修”一下，给自己挖个坑先…  </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前天在研究Github的时候，发现Github提供免费的服务器可以用来搭建网站，然后就有了捣鼓一个博客的想法。经过两天的折腾（爬坑），解决了各种没有预料的问题，把它弄出来了后，还真有点儿打开新世界的大门的感觉…  &lt;/p&gt;
-&lt;p&gt;以后这里主要想用来记录一些生活中的事情和自己
-    
-    </summary>
-    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
@@ -66,13 +46,13 @@
     <link href="http://yoursite.com/2016/10/28/hello-world/"/>
     <id>http://yoursite.com/2016/10/28/hello-world/</id>
     <published>2016-10-28T03:46:58.199Z</published>
-    <updated>2016-10-28T03:46:58.206Z</updated>
+    <updated>2016-10-30T12:35:27.191Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a><br><a id="more"></a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
@@ -81,10 +61,16 @@
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot;&gt;Server&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
