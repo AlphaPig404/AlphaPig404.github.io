@@ -171,21 +171,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><placeholder></p>
-<h2 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h2><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p>####git init  </p>
+        <blockquote>
+<p>git是用于Linux内核开发的版本控制工具。与CVS、Subversion一类的集中式版本控制工具不同，它采用了分布式版本库的作法，不需要服务器端软件，就可以运作版本控制，使得源代码的发布和交流极其方便。git的速度很快，这对于诸如Linux内核这样的大项目来说自然很重要。git最为出色的是它的合并追踪（merge tracing）能力。  </p>
+</blockquote>
+<h2 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h2><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p><strong>git init</strong>  </p>
 <p>创建一个本地文件夹dir，通过git init命令把这个文件夹编程git可以管理的仓库。在仓库里面创建的文件都能通过git操作。  </p>
 <h3 id="工作区、暂存区和提交区"><a href="#工作区、暂存区和提交区" class="headerlink" title="工作区、暂存区和提交区"></a>工作区、暂存区和提交区</h3><p>仓库中创建的文件默认是工作区。   </p>
-<h4 id="git-add-lt-file"><a href="#git-add-lt-file" class="headerlink" title="git add &lt;file"></a>git add &lt;file</h4><p>通过git add命名可以把文件的修改添加到暂存区；<br>git add .可以一次性添加所有的文件修改；<br>git add “*.txt”添加指定格式的文件修改。</p>
-<h4 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h4><p>通过git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支(branch).正常的使用是git commit -m ”提交信息“，加上提交信息来提交，方便管理。</p>
-<h4 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h4><p>可以用来追踪文件状态。  </p>
-<h4 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h4><p>可以看到文件修改过的地方，在add之前使用。每次的文件修改都需要add到缓存区才能保存修改。 </p>
-<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><h4 id="git-reset-HEAD-lt-file"><a href="#git-reset-HEAD-lt-file" class="headerlink" title="git reset HEAD &lt;file"></a>git reset HEAD &lt;file</h4><p>可以将暂存区的修改回退到工作区，且会保留修改。</p>
-<h4 id="git-checkout-–-lt-file"><a href="#git-checkout-–-lt-file" class="headerlink" title="git checkout –&lt;file"></a>git checkout –&lt;file</h4><p>可以将暂存区的修改回退到工作区，且会丢弃工作区的修改。实际上是用版本库里的版本替代工作区的版本，无论工作区是修改还是删除，都能被还原到之前的状态。  </p>
-<h4 id="git-reset-–-hard-soft-mixd-merge-keep-lt-commit-id-HEAD-n"><a href="#git-reset-–-hard-soft-mixd-merge-keep-lt-commit-id-HEAD-n" class="headerlink" title="git reset –[hard|soft|mixd|merge|keep]&lt;commit_id|HEAD^n"></a>git reset –[hard|soft|mixd|merge|keep]&lt;commit_id|HEAD^n</h4><p>将当前版本回退到指定的commit_id(绝对路径)或者HEAD前n次提交的版本(相对路径)。<br>通过git log命令能够看到提交历史，包含每次提交的commit_id，通过git reflog能看到所有HEAD的历史，也就是reset，checkout等操作的操作记录。<br>参数hard会直接丢弃回退路径上的历史提交；<br>参数soft只是将HEAD指向回退的版本，路径上的提交内容会回退到暂存区…  </p>
-<h4 id="git-rm-lt-file"><a href="#git-rm-lt-file" class="headerlink" title="git rm &lt;file"></a>git rm &lt;file</h4><p>删除指定文件   </p>
-<h3 id="关联仓库"><a href="#关联仓库" class="headerlink" title="关联仓库"></a>关联仓库</h3><h4 id="git-remote-add-origin"><a href="#git-remote-add-origin" class="headerlink" title="git remote add origin"></a>git remote add origin</h4><p>通过git remote add origin git@github.com:user/repository可以将本地仓库与远程仓库相关联，利用git push -u origin &lt;branch 将本地库所有内容推送到远程库上，-u只在第一次推送时使用。</p>
+<p><strong>git add &lt;file</strong>   </p>
+<p>通过git add命名可以把文件的修改添加到暂存区；<br>git add .可以一次性添加所有的文件修改；<br>git add “*.txt”添加指定格式的文件修改。</p>
+<p><strong>git commit</strong> </p>
+<p>通过git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支(branch).正常的使用是git commit -m ”提交信息“，加上提交信息来提交，方便管理。</p>
+<p><strong>git status</strong>  </p>
+<p>可以用来追踪文件状态。  </p>
+<p><strong>git diff</strong> </p>
+<p>可以看到文件修改过的地方，在add之前使用。每次的文件修改都需要add到缓存区才能保存修改。 </p>
+<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><p><strong>git reset HEAD &lt;file</strong></p>
+<p>可以将暂存区的修改回退到工作区，且会保留修改。</p>
+<p><strong>git checkout –&lt;file</strong>   </p>
+<p>可以将暂存区的修改回退到工作区，且会丢弃工作区的修改。实际上是用版本库里的版本替代工作区的版本，无论工作区是修改还是删除，都能被还原到之前的状态。  </p>
+<p><strong>git reset –[hard|soft|mixd|merge|keep]&lt;commit_id|HEAD^n</strong>  </p>
+<p>将当前版本回退到指定的commit_id(绝对路径)或者HEAD前n次提交的版本(相对路径)。<br>通过git log命令能够看到提交历史，包含每次提交的commit_id，通过git reflog能看到所有HEAD的历史，也就是reset，checkout等操作的操作记录。<br>参数hard会直接丢弃回退路径上的历史提交；<br>参数soft只是将HEAD指向回退的版本，路径上的提交内容会回退到暂存区…  </p>
+<p><strong>git rm &lt;file</strong>  </p>
+<p>删除指定文件   </p>
+<h3 id="关联仓库"><a href="#关联仓库" class="headerlink" title="关联仓库"></a>关联仓库</h3><p><strong>git remote add origin</strong> </p>
+<p>通过git remote add origin git@github.com:user/repository可以将本地仓库与远程仓库相关联，利用git push -u origin &lt;branch 将本地库所有内容推送到远程库上，-u只在第一次推送时使用。</p>
         
-          <a class="article-more-a" href="/2017/01/03/git/#more">more >></a>
+          <a class="article-more-a" href="/2017/01/03/git/#more">MORE >></a>
         
       
 
@@ -207,10 +218,6 @@
 
       
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/03/git/">More >></a>
-        </p>
       
 
       
@@ -266,10 +273,6 @@
       
       
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/02/hello-world/">More >></a>
-        </p>
       
 
       
