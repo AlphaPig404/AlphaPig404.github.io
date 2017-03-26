@@ -6,14 +6,60 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Tools | Nuluf&#39;s blog</title>
+  <title>布局解决方案之居中布局 | Nuluf&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nuluf's blog">
-<meta property="og:url" content="http://yoursite.com/tags/Tools/index.html">
+  <meta name="description" content="居中方案包括水平居中、垂直居中和垂直水平居中，以下方案针对的是parent和child不定宽高的情况
+
+水平居中水平居中方案:  
+
+inline-block+text-align    
+table+margin   
+ absolute+transform   
+flex+justify-content
+
+
+
+inline-block + text-align
+
+HTML  
+&amp;lt;div">
+<meta property="og:type" content="article">
+<meta property="og:title" content="布局解决方案之居中布局">
+<meta property="og:url" content="http://yoursite.com/2017/01/09/布局解决方案之居中布局/index.html">
 <meta property="og:site_name" content="Nuluf's blog">
+<meta property="og:description" content="居中方案包括水平居中、垂直居中和垂直水平居中，以下方案针对的是parent和child不定宽高的情况
+
+水平居中水平居中方案:  
+
+inline-block+text-align    
+table+margin   
+ absolute+transform   
+flex+justify-content
+
+
+
+inline-block + text-align
+
+HTML  
+&amp;lt;div">
+<meta property="og:updated_time" content="2017-02-21T09:00:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nuluf's blog">
+<meta name="twitter:title" content="布局解决方案之居中布局">
+<meta name="twitter:description" content="居中方案包括水平居中、垂直居中和垂直水平居中，以下方案针对的是parent和child不定宽高的情况
+
+水平居中水平居中方案:  
+
+inline-block+text-align    
+table+margin   
+ absolute+transform   
+flex+justify-content
+
+
+
+inline-block + text-align
+
+HTML  
+&amp;lt;div">
   
     <link rel="alternative" href="/atom.xml" title="Nuluf&#39;s blog" type="application/atom+xml">
   
@@ -149,60 +195,299 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-布局解决方案之居中布局" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/03/git/" class="archive-article-date">
-  	<time datetime="2017-01-03T13:42:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/03/git/">git常用命令</a>
+    <h1 class="article-title" itemprop="name">
+      布局解决方案之居中布局
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/01/09/布局解决方案之居中布局/" class="archive-article-date">
+  	<time datetime="2017-01-09T07:59:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>居中方案包括水平居中、垂直居中和垂直水平居中，以下方案针对的是parent和child<strong>不定宽高</strong>的情况</p>
+</blockquote>
+<h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><p>水平居中方案:  </p>
+<ol>
+<li><a href="#jp1">inline-block+text-align </a>   </li>
+<li><a href="#jp2">table+margin</a>   </li>
+<li><a href="#jp3"> absolute+transform </a>  </li>
+<li><a href="#jp4">flex+justify-content</a></li>
+</ol>
+<p><span id="jp1"></span></p>
+<blockquote>
+<p>inline-block + text-align</p>
+</blockquote>
+<p>HTML  </p>
+<pre><code>&lt;div class = &quot;parent&quot;&gt;
+    &lt;div class=&quot;child&quot;&gt;DEMO&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>CSS部分</p>
+<pre><code>.child{
+    display: inline-block;
+}
+.parent{
+    text-align: center;
+}
+</code></pre><p>优点：兼容性比较好，ie6、7不支持inline-block，可触发haslayout做兼容。（<em>display:inline; \</em>zoom:1）<br>缺点：child元素会继承到text-align，如果里面的内容不需要居中的话就得追加额外的代码。  </p>
+<p><span id="jp2"></span></p>
+<blockquote>
+<p>table + margin  </p>
+</blockquote>
+<p>CSS部分  </p>
+<pre><code>.child{
+    display: table;
+    margin: 0 auto;
+}
+</code></pre><p>优点：结构简单<br>缺点：如果需要兼容ie6、7的话就需要将HTML结构更换成table布局。但由于table存在渲染效率的问题，一般都不会推荐用这种方法。  </p>
+<p><span id="jp3"></span></p>
+<blockquote>
+<p>absolute + transform  </p>
+</blockquote>
+<p>CSS部分  </p>
+<pre><code>.parent{
+    position: relative;
+}
+.child{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+</code></pre><p>优点：absolute是脱离文档流的，因此不会对其他元素产生影响；<br>缺点：无法兼容ie6、7、8(transform的兼容问题)。</p>
+<p><span id="jp4"></span></p>
+<blockquote>
+<p>flex + justify-content</p>
+</blockquote>
+<p>CSS部分</p>
+<pre><code>.parent{
+    display: flex;
+    justify-content: center;//如果不用这个
+}
+/*
+    .child{
+        margin: 0 auto;
+    }
+*/
+</code></pre><p>优点：只需要设置父元素(或子元素margin)；<br>缺点：不支持ie6、7、8(flex的兼容问题)。  </p>
+<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><p>垂直居中方案：  </p>
+<ol>
+<li><a href="#jp5">tabel-cell + vertical-align</a>  </li>
+<li><a href="#jp6">absolute + transform</a>    </li>
+<li><a href="#jp7">flex + align-items</a></li>
+</ol>
+<p><span id="jp5"></span></p>
+<blockquote>
+<p>tabel-cell + vertical-align</p>
+</blockquote>
+<pre><code>.parent{
+    display: table-cell;
+    vertical-align:middle;//作用在inline特征的元素上
+}
+</code></pre><p>优缺点同水平布局中的table方案。  </p>
+<p><span id="jp6"></span></p>
+<blockquote>
+<p>absolute + transform  </p>
+</blockquote>
+<pre><code>.parent{
+    position: relative;
+}
+.child{
+    position:absolute;
+    top: 50%;
+    trnsform: translateY(-50%);
+}
+</code></pre><p>优缺点同水平布局中的transform方案。  </p>
+<p><span id="jp7"></span></p>
+<blockquote>
+<p>flex + align-items</p>
+</blockquote>
+<pre><code>.parent{
+    display: flex;
+    align-items: center;
+}
+</code></pre><p>优缺点同水平布局的flex方案</p>
+<h3 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h3><p>结合上面的方案：  </p>
+<ol>
+<li><a href="#jp8">inline-block + text-align + table-cell + vertical-align;</a>  </li>
+<li><a href="#jp9">absolute + transform;</a>  </li>
+<li><a href="#jp10">flex + justify-conten + align-items</a></li>
+</ol>
+<p><span id="jp8"></span></p>
+<blockquote>
+<p>inline-block + text-align + table-cell + vertical-align  </p>
+</blockquote>
+<pre><code>.parent{
+    text-align: center;
+    display: table;
+    verttical-align: center;
+}
+.child{
+    display:inline-block;
+}
+</code></pre><p>优缺点同上。</p>
+<p><span id="jp9"></span></p>
+<blockquote>
+<p>absolute + transform  </p>
+</blockquote>
+<pre><code>.parent{
+    position: relative;
+}
+.child{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    tranform: translate(-50%,-50%);
+}
+</code></pre><p>优缺点同上。  </p>
+<p><span id="jp10"></span></p>
+<blockquote>
+<p>flex + justify-content + align-items</p>
+</blockquote>
+<pre><code>.parent{
+    display: flex;
+    justify-conten: center;
+    align-items: center;
+}
+</code></pre><p>优缺点同上。  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
 			 
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color1">Tools</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color4">css</a>
         </li>
       
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/09/布局解决方案之居中布局/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/01/09/布局解决方案之多列布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          布局解决方案之多列布局
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/01/03/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git常用命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="布局解决方案之居中布局" data-title="布局解决方案之居中布局" data-url="http://yoursite.com/2017/01/09/布局解决方案之居中布局/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"fulun2016"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -225,9 +510,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
