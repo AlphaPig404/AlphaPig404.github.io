@@ -21,7 +21,7 @@ Vue声明不能先与HTML渲染，否则会找不到挂载点。
 Vue声明不能先与HTML渲染，否则会找不到挂载点。
 可以直接使用new来获取一个对象实例，而不用将对象赋值给变量。但如果需要利用对象的方法进行扩展的">
 <meta property="og:image" content="http://ofwmbpctf.bkt.clouddn.com/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
-<meta property="og:updated_time" content="2017-03-26T11:48:13.000Z">
+<meta property="og:updated_time" content="2017-04-18T09:23:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue基础学习">
 <meta name="twitter:description" content="Vue实例构造器
@@ -190,7 +190,9 @@ Vue声明不能先与HTML渲染，否则会找不到挂载点。
 <li>可以直接使用new来获取一个对象实例，而不用将对象赋值给变量。但如果需要利用对象的方法进行扩展的话，还是赋值给一个变量比较好。</li>
 <li>可以使用Vue.extend来扩展Vue构造器，从而用预定义选项创建可复用的组件构造器,所有的Vue组件其实都是被扩展的Vue实例</li>
 <li>多个Vue实例挂载同一个el时，第一个实例有效，而不是被后面的覆盖</li>
-<li><p>被Vue渲染过的元素不会重复被渲染，默认渲染第一个</p>
+<li>被Vue渲染过的元素不会重复被渲染，默认渲染第一个</li>
+</ol>
+<a id="more"></a>
 <pre><code>&lt;div id=&quot;app&quot;&gt;
     &lt;div id=&quot;test&quot;&gt;
         {{data}}
@@ -214,9 +216,7 @@ Vue声明不能先与HTML渲染，否则会找不到挂载点。
         }
     });
 &lt;/script&gt;
-</code></pre></li>
-</ol>
-<h3 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h3><ol>
+</code></pre><h3 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h3><ol>
 <li>每个Vue实例都会代理其data对象里所有的属性，注意只有这些被代理的属性是响应的。如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。</li>
 <li>除了data属性,Vue实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀$，以便与代理的data属性区分</li>
 </ol>
@@ -2175,11 +2175,11 @@ Vue声明不能先与HTML渲染，否则会找不到挂载点。
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Tools</a>
+                <a href="javascript:void(0)" class="color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">webpack</a>
+                <a href="javascript:void(0)" class="color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2259,11 +2259,11 @@ Vue声明不能先与HTML渲染，否则会找不到挂载点。
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://cn.vuejs.org/v2/guide/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Vue官网</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="https://webpack.bootcss.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>webpack官网</a>
             </li>
           
             <li class="search-li">

@@ -32,7 +32,7 @@ function hello(str){
 }
   直接在当前文件夹下运行命令
 webpack main.js bundle">
-<meta property="og:updated_time" content="2017-04-18T09:03:38.000Z">
+<meta property="og:updated_time" content="2017-04-18T09:14:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack从入门到放弃">
 <meta name="twitter:description" content="Webapck安装和命令行安装npm install webpack --save-dev安装到当前文件  
@@ -264,17 +264,12 @@ module.exports = {
 </code></pre><p>然后直接执行webpack命令就可以完成打包的工作。也可以使用’webpack –config 文件名‘来指定webpack要执行的配置文件。然后配合npm自动的脚本工作script来绑定不同的命令。比如在package.json中的scripts中设置webpack为’webpack –config webpack.config.js –progress –disaplay-module’,然后在命令行中执行npm run webpack就相当于直接在命令行中执行了后面那一长串的命令。Vulcli的npm run dev和npm run build就是利用了npm的这一特性。</p>
 <h3 id="entry配置"><a href="#entry配置" class="headerlink" title="entry配置"></a>entry配置</h3><ul>
 <li><p>单页面项目只有一个入口文件时，直接配置文件的入口</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">entry:<span class="string">'./entry'</span></div></pre></td></tr></table></figure>
+<pre><code>entry:&apos;./entry&apos;
 </code></pre></li>
-</ul>
-<ul>
 <li><p>单页面项目有多个入口文件时，处理没有依赖关系的文件</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">entry:[<span class="string">'./entry1'</span>,<span class="string">'./entry2'</span>]</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
+<pre><code>entry:[&apos;./entry1&apos;,&apos;./entry2&apos;]
+</code></pre></li>
 <li><p>多页面应用程序中，需要针对不同的页面配置不同的入口</p>
-<p>  ```javascript</p>
 <pre><code>entry: {
     page1: &apos;./page1&apos;,
     page2: [&apos;./entry1&apos;,&apos;./entry2&apos;]
@@ -283,7 +278,7 @@ module.exports = {
 </li>
 </ul>
 <h3 id="output配置"><a href="#output配置" class="headerlink" title="output配置"></a>output配置</h3><ul>
-<li><p>单入口文件时，如之前的配置<br>  ```javascript</p>
+<li><p>单入口文件时，如之前的配置</p>
 <pre><code>{
     entry: &apos;./src/app.js&apos;,
     output: {
@@ -2412,11 +2407,11 @@ module: {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Tools</a>
+                <a href="javascript:void(0)" class="color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">webpack</a>
+                <a href="javascript:void(0)" class="color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2496,11 +2491,11 @@ module: {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://cn.vuejs.org/v2/guide/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Vue官网</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="https://webpack.bootcss.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>webpack官网</a>
             </li>
           
             <li class="search-li">
