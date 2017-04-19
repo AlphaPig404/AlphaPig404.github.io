@@ -327,7 +327,17 @@ document.body.insertBefore(script,document.body.firstChild);
 
 
   
-    <div class="duoshuo"></div>
+  <div class="duoshuo">
+	<div id="hot-news-wrap"></div>
+	<script>var yunModuleEnv = true;</script>
+	<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+	<script>
+	  var yunTieProductKey = "bfea36db120a4c03a33a24f567b9dfe9";  
+	  var yunHotNewsWrap = "hot-news-wrap";   //放置的DOM节点ID 或 样式类
+	  Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vZXh0ZW5kL2hvdF9uZXdzX3NjcmlwdC5odG1s", true);
+	</script>
+</div>
+
   
 
 
@@ -2160,6 +2170,14 @@ document.body.insertBefore(script,document.body.firstChild);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">vue2.0</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color4">css</a>
               </li>
              
@@ -2168,11 +2186,7 @@ document.body.insertBefore(script,document.body.firstChild);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">vue2.0</a>
+                <a href="javascript:void(0)" class="color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2185,10 +2199,6 @@ document.body.insertBefore(script,document.body.firstChild);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">CSS</a>
               </li>
             
             <div class="clearfix"></div>
