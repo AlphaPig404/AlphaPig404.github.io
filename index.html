@@ -179,7 +179,7 @@
 <pre><code>&lt;iframe  src=&quot;https://jsfiddle.net/Nuluf/4saa7he7/embedded/result,html,css,js/&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot; style=&quot;width:100%;height:300px;&quot;&gt;&lt;/iframe&gt;
 </code></pre></li>
 </ol>
-<h3 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h3><iframe src="https://jsfiddle.net/Nuluf/4saa7he7/embedded/result,html,css,js/" allowfullscreen="allowfullscreen" frameborder="0" style="width:100%;height:300px;"></iframe>
+<h3 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h3><iframe src="https://jsfiddle.net/Nuluf/4saa7he7/embedded/js,html,css,result/" allowfullscreen="allowfullscreen" frameborder="0" style="width:100%;height:300px;"></iframe>
 
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="http://doc.okbase.net/qdlife/archive/42298.html" target="_blank" rel="external">在线前端代码展示分享神器-JSFiddle
 </a></p>
@@ -287,6 +287,262 @@ function hello(str){
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/04/18/Webapck从入门到放弃/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-mobileWeb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/17/mobileWeb/">移动端常见问题集锦</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/17/mobileWeb/" class="archive-article-date">
+  	<time datetime="2017-04-17T04:09:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于移动端适配的问题"><a href="#关于移动端适配的问题" class="headerlink" title="关于移动端适配的问题"></a>关于移动端适配的问题</h2><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;/&gt;
+目前的做法是设置meta标签，用750/640的设计稿来布局，简单粗暴。也有推崇用rem来布局的，感觉不太好操作。设置如下：
+html { font-size: 100px; }
+@media(min-width: 320px) { html { font-size: 100px; } }
+@media(min-width: 360px) { html { font-size: 112.5px; } }
+@media(min-width: 400px) { html { font-size: 125px; } }
+@media(min-width: 640px) { html { font-size: 200px; } }
+给手机设置100px的字体大小；对于320px的手机匹配是100px，其他手机都是等比例匹配，因此设计稿上是多少像素的话，那么转换为rem的时候，rem = 设计像素/100即可
+</code></pre><h2 id="禁用a-button-input-optgroup-select-textarea等标签背景变暗"><a href="#禁用a-button-input-optgroup-select-textarea等标签背景变暗" class="headerlink" title="禁用a,button,input,optgroup,select,textarea等标签背景变暗"></a>禁用a,button,input,optgroup,select,textarea等标签背景变暗</h2><p>在移动端使用a标签做按钮的时候或者文字连接的时候，点击按钮会出现一个 “暗色的”背景，比如如下代码：<br>  \<a href="">button1\</a><br>  \<input type="button" value="提交"><br>在移动端点击后 会出现”暗色”的背景，这时候我们需要在css加入如下代码即可：</p>
+<pre><code>a,button,input,optgroup,select,textarea{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+</code></pre><h2 id="meta基础知识点："><a href="#meta基础知识点：" class="headerlink" title="meta基础知识点："></a>meta基础知识点：</h2><ol>
+<li><p>页面窗口自动调整到设备宽度，并禁止用户及缩放页面。</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0, user-scalable=0&quot; /&gt;
+</code></pre><p>属性基本含义：<br>content=”width=device-width：<br>控制 viewport 的大小,device-width 为设备的宽度<br>initial-scale - 初始的缩放比例<br>minimum-scale - 允许用户缩放到的最小比例<br>maximum-scale - 允许用户缩放到的最大比例<br>user-scalable - 用户是否可以手动缩放  </p>
+</li>
+<li><p>忽略将页面中的数字识别为电话号码  </p>
+<pre><code>&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot; /&gt;
+</code></pre></li>
+<li><p>忽略Android平台中对邮箱地址的识别  </p>
+<pre><code>&lt;meta name=&quot;format-detection&quot; content=&quot;email=no&quot; /&gt;
+</code></pre></li>
+</ol>
+<ol>
+<li><p>当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari  </p>
+<pre><code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
+</code></pre></li>
+</ol>
+<ol>
+<li><p>将网站添加到主屏幕快速启动方式，仅针对ios的safari顶端状态条的样式  </p>
+<pre><code>&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot; /&gt;
+</code></pre></li>
+<li><p>需要在网站的根目录下存放favicon图标，防止404请求(使用fiddler可以监听到)，在页面上需加link如下：</p>
+<pre><code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot;&gt;
+</code></pre></li>
+</ol>
+<p>因此页面上通用的模板如下：</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+ &lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;meta content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no&quot; name=&quot;viewport&quot;&gt;
+        &lt;meta content=&quot;yes&quot; name=&quot;apple-mobile-web-app-capable&quot;&gt; 
+        &lt;meta content=&quot;black&quot; name=&quot;apple-mobile-web-app-status-bar-style&quot;&gt;
+        &lt;meta content=&quot;telephone=no&quot; name=&quot;format-detection&quot;&gt;
+        &lt;meta content=&quot;email=no&quot; name=&quot;format-detection&quot;&gt;
+        &lt;title&gt;标题&lt;/title&gt;
+        &lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot;&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        这里开始内容
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="移动端如何定义字体font-family"><a href="#移动端如何定义字体font-family" class="headerlink" title="移动端如何定义字体font-family"></a>移动端如何定义字体font-family</h2><ol>
+<li>IOS系统<ul>
+<li>默认中文字体是Heiti SC</li>
+<li>默认引文字体Helvetica</li>
+<li>默认数字字体是HelveticaNeue</li>
+<li>无微软雅黑字体</li>
+</ul>
+</li>
+<li>Android系统<ul>
+<li>默认中文字体是Droidssansfallback</li>
+<li>默认英文和数字字体是Droid Sans</li>
+<li>无微软雅黑字体  </li>
+</ul>
+</li>
+<li>Winphone系统<ul>
+<li>默认中文字体是Dengxian(方正等线体)</li>
+<li>默认英文和数字字体是Segoe</li>
+<li>无微软雅黑字体</li>
+</ul>
+</li>
+</ol>
+<p>各个手机系统都有自己的默认字体，且都不支持微软雅黑，如无特殊需求，手机端无需定义中文字体，使用系统默认英文字体和数字字体可使用Helevetica，三种系统都支持。</p>
+<pre><code>html{ 
+        color: #333;
+        font-family:&apos;Helvetica Neue&apos;,Tahoma,Arial,PingFangSC-Regular,&apos;Hiragino Sans GB&apos;,&apos;Microsoft Yahei&apos;,sans-serif;
+        line-height: 1.2;
+        user-select: none;
+        -webkit-font-smoothing: antialiased;
+        touch-action: manipulation;
+        text-size-adjust: none;
+    }
+以上配置来自于饿了么H5
+或者直接body{font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif;}
+</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="点击链接可拨打电话"><a href="#点击链接可拨打电话" class="headerlink" title="点击链接可拨打电话"></a>点击链接可拨打电话</h3><pre><code>&lt;a href=&quot;tel:13412341234&quot;&gt;打电话给：13412341234&lt;/a&gt;
+</code></pre><h3 id="点击链接可以发短信"><a href="#点击链接可以发短信" class="headerlink" title="点击链接可以发短信"></a>点击链接可以发短信</h3><pre><code>&lt;a href=&quot;sms:10086&quot;&gt;发送短信给10086&lt;/a&gt;
+</code></pre><h3 id="调用手机系统自带的邮件功能"><a href="#调用手机系统自带的邮件功能" class="headerlink" title="调用手机系统自带的邮件功能"></a>调用手机系统自带的邮件功能</h3><pre><code>&lt;a href=&quot;mailto:fulun2017@gmail.com&quot;&gt;发送电子邮件&lt;/a&gt;
+</code></pre><h3 id="webkeit表单输入框placeholder的颜色值改变："><a href="#webkeit表单输入框placeholder的颜色值改变：" class="headerlink" title="webkeit表单输入框placeholder的颜色值改变："></a>webkeit表单输入框placeholder的颜色值改变：</h3><p>如果想要默认的颜色显示红色，代码如下：  </p>
+<pre><code>input::-webkit-input-placeholder{color:red;}  
+</code></pre><p>如果想要用户点击变为蓝色，代码如下：</p>
+<pre><code>input:focus::-webkit-input-placeholder{color:blue;}
+</code></pre><h3 id="移动端IOS手机下清除输入框内阴影："><a href="#移动端IOS手机下清除输入框内阴影：" class="headerlink" title="移动端IOS手机下清除输入框内阴影："></a>移动端IOS手机下清除输入框内阴影：</h3><pre><code>input,textarea{
+    -webkit-appearance:none;
+}
+</code></pre><h3 id="在IOS中禁止长按链接与图片弹出菜单"><a href="#在IOS中禁止长按链接与图片弹出菜单" class="headerlink" title="在IOS中禁止长按链接与图片弹出菜单"></a>在IOS中禁止长按链接与图片弹出菜单</h3><pre><code>a, img {
+   -webkit-touch-callout: none; 
+}
+</code></pre><h3 id="不显示webkit的滚动条"><a href="#不显示webkit的滚动条" class="headerlink" title="不显示webkit的滚动条"></a>不显示webkit的滚动条</h3><pre><code>element::-webkit-scrollbar{display:none;}
+// 测试在微信端无效（iPhone6）
+目前来看的话，移动端局部滚动需要引入第三方库iscroll或者better-scroll
+</code></pre><h3 id="H5页面内容不想被人选中"><a href="#H5页面内容不想被人选中" class="headerlink" title="H5页面内容不想被人选中"></a>H5页面内容不想被人选中</h3><pre><code>-webkit-user-select: none;
+user-select: none;
+</code></pre><h3 id="H5页面想禁止长按链接或长按图片弹出菜单"><a href="#H5页面想禁止长按链接或长按图片弹出菜单" class="headerlink" title="H5页面想禁止长按链接或长按图片弹出菜单"></a>H5页面想禁止长按链接或长按图片弹出菜单</h3><pre><code>-webkit-touch-callout: none;
+</code></pre><h3 id="想取消IOS中button、input上的默认样式"><a href="#想取消IOS中button、input上的默认样式" class="headerlink" title="想取消IOS中button、input上的默认样式"></a>想取消IOS中button、input上的默认样式</h3><pre><code>-webkit-appearance: none;
+</code></pre><h3 id="想改变Input里-placeholder属性的样式"><a href="#想改变Input里-placeholder属性的样式" class="headerlink" title="想改变Input里 placeholder属性的样式"></a>想改变Input里 placeholder属性的样式</h3><pre><code>::-webkit-input-placeholder{color:#ccc}
+</code></pre><h3 id="H5页面input-type-”num”时想去掉右边的上下箭头"><a href="#H5页面input-type-”num”时想去掉右边的上下箭头" class="headerlink" title="H5页面input type=”num”时想去掉右边的上下箭头"></a>H5页面input type=”num”时想去掉右边的上下箭头</h3><pre><code>input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none !important; margin: 0;}
+</code></pre><h3 id="H5页面加载的图片太大了，怎么办？"><a href="#H5页面加载的图片太大了，怎么办？" class="headerlink" title="H5页面加载的图片太大了，怎么办？"></a>H5页面加载的图片太大了，怎么办？</h3><pre><code>JPG图片用JPEGmini压缩，PNG可在线用http://tinypng.org/压缩
+</code></pre><h3 id="在iOS系统中键盘输入时不想首字母为大写"><a href="#在iOS系统中键盘输入时不想首字母为大写" class="headerlink" title="在iOS系统中键盘输入时不想首字母为大写"></a>在iOS系统中键盘输入时不想首字母为大写</h3><pre><code>&lt;input type=&quot;text&quot; autocapitalize=&quot;off&quot; /&gt;
+</code></pre><h3 id="在IOS系统中键盘输入关闭自动修正"><a href="#在IOS系统中键盘输入关闭自动修正" class="headerlink" title="在IOS系统中键盘输入关闭自动修正"></a>在IOS系统中键盘输入关闭自动修正</h3><pre><code>&lt;input type=&quot;text&quot; autocorrect=&quot;off&quot; /&gt; 
+</code></pre><h3 id="屏幕旋转横屏竖屏切换时，想禁止文本缩放"><a href="#屏幕旋转横屏竖屏切换时，想禁止文本缩放" class="headerlink" title="屏幕旋转横屏竖屏切换时，想禁止文本缩放"></a>屏幕旋转横屏竖屏切换时，想禁止文本缩放</h3><pre><code>-webkit-text-size-adjust: 100%;
+</code></pre><h3 id="H5页面想有快速回弹滚动的效果"><a href="#H5页面想有快速回弹滚动的效果" class="headerlink" title="H5页面想有快速回弹滚动的效果"></a>H5页面想有快速回弹滚动的效果</h3><pre><code>overflow: auto; /* auto | scroll */
+
+-webkit-overflow-scrolling: touch;
+</code></pre><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="http://www.cnblogs.com/tugenhua0707/p/5180841.html" target="_blank" rel="external">H5移动端知识点总结</a><br><a href="http://tgideas.qq.com/webplat/info/news_version3/804/808/811/m579/201411/290576.shtml" target="_blank" rel="external">移动前端系列——移动端页面坑与排坑技巧</a><br><a href="http://blog.csdn.net/u012118993/article/details/56023399" target="_blank" rel="external">H5手机移动端WEB开发资源整合 常用的标签及注意事项</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color1">Mobil</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/17/mobileWeb/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Pixel 移动开发像素知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/26/Pixel 移动开发像素知识/">移动端开发基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/26/Pixel 移动开发像素知识/" class="archive-article-date">
+  	<time datetime="2017-03-26T11:36:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Pixel-移动开发像素知识"><a href="#Pixel-移动开发像素知识" class="headerlink" title="Pixel 移动开发像素知识"></a>Pixel 移动开发像素知识</h2><ul>
+<li>px: CSS pixels逻辑像素，浏览器使用的抽象单位</li>
+<li>dp,pt: device independent pixels设备无关像素</li>
+<li><p>dpr: devicePxielRatio 设备像素缩放比<br>计算公式： 1px = (dpr)^2 <em> dp<br>维度上: 1px = 2 </em> dp</p>
+</li>
+<li><p>DPI: 打印机每英寸可以喷的墨汁点(印刷行业)</p>
+</li>
+<li>PPI: 屏幕每英寸的像素数量，即单位英寸内的像素密度<br>目前，在计算机显示设备参数描述上，二者意思表达式一样的  </li>
+</ul>
+<p>计算公式：以iPhone5为例子<br>ppi = 开方(1136^2+640^2)/4 = 326ppi (视网膜Retian屏)  </p>
+<p>注意：单位为硬件像素，非px</p>
+<p>PPI越高，像素数越高，图像约清晰<br>Retina屏(高清屏)</p>
+<h2 id="Viewport"><a href="#Viewport" class="headerlink" title="Viewport"></a>Viewport</h2><p>手机浏览器默认为我们做了两件事情  </p>
+<ol>
+<li>页面渲染在一个980px(ios)的viewpoint上  </li>
+<li>缩放<br>为什么不使用默认的980px的布局viewport</li>
+</ol>
+<ul>
+<li>宽度不可控制，不同系统不同设备的默认值都可能不同</li>
+<li>页面缩小版显示，交互不友好</li>
+<li>链接不可点</li>
+<li>有缩放，缩放后又有滚动  </li>
+</ul>
+<p>font-size为40px等于PC上的12px同等物理大小，不规范  </p>
+<p>一般是使用meta标签改变vieport<br>\<meta name="viewport" content="with=device-width,initial-scal=1" \=""></p>
+<h2 id="设计方案"><a href="#设计方案" class="headerlink" title="设计方案"></a>设计方案</h2><h3 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h3><p>根据设备的实际宽度来设计(常用)，比如手机宽320px,我们就拿320px设计</p>
+<h3 id="方案2-1px-1dp"><a href="#方案2-1px-1dp" class="headerlink" title="方案2 1px=1dp"></a>方案2 1px=1dp</h3><p>缩放0.5，根据设备的物理像素dp等于抽象像素px来设置。1像素边框和高清图片都不需要额外处理。淘宝订单方案，具体应该是使用媒体查询dp值来选择缩放比。</p>
+<h2 id="高效移动web布局"><a href="#高效移动web布局" class="headerlink" title="高效移动web布局"></a>高效移动web布局</h2><h4 id="弹性布局-flex"><a href="#弹性布局-flex" class="headerlink" title="弹性布局 flex"></a>弹性布局 flex</h4><h4 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h4><p>媒体查询：<br>类型：screen(屏幕)、print(打印机)、hangheld(手持设备)、all(通用)<br>参数：width–视口宽度、height–视口宽度、device-width–设备的宽度、device-height–设备的高度、orientation：检查设备处于横向(landscape)还是竖屏(portrait)<br>设计要点一: 百分比布局(建议)<br>设计要点二：弹性图片<br>设计要点三：重新布局，显示和隐藏</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/26/Pixel 移动开发像素知识/">展开全文 >></a>
         </p>
       
 
@@ -495,7 +751,7 @@ function hello(str){
 		<ul class="article-tag-list">
 			 
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color4">css</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color4">CSS</a>
         </li>
        
         <li class="article-tag-list-item">
@@ -510,6 +766,294 @@ function hello(str){
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/02/10/responsiveweb/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Closure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/08/Closure/">JS中的闭包</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/08/Closure/" class="archive-article-date">
+  	<time datetime="2017-02-08T12:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###闭包是什么？<br>闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。</p>
+<p>###广义的闭包<br>也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。<br>有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。<br>看个例子  </p>
+<pre><code>function foo(){
+    var a = 2;
+    function bar(){
+        console.log(a);
+        debugger;
+    }
+    bar();
+}
+foo();
+
+//甚至直接这样
+var a = 2;
+(function IIFE(){
+    console.log(a);
+    debugger;
+})();
+</code></pre><p>这是闭包吗？子函数bar调用了foo函数作用域中的a变量，自执行函数IIFE()调用了全局作用域中a，符合上面闭包的说法。而且debugger的时候确实能在浏览器调试界面中看到closure。但是这种闭包其实没有太大的意义(后面会说明)，而且按照这个说法的话JS里几乎所有的函数都是闭包，因为所有的函数都是基于词法作用域逐级向上回溯的规则创建的，这显然不符合我们的理解。  </p>
+<p>###狭义的闭包<br>我们通常所讲的闭包是狭义上的闭包，它的形成具有两个特点：  </p>
+<ol>
+<li>内部函数访问了所在词法作用域中的变量(即外部函数作用域中的变量)；  </li>
+<li><p>该内部函数在所引用的变量所在的词法作用域之外的地方执行。<br>根据上面的狭义的闭包的说明，我们看几个例子<br>###闭包的三种类型<br>关于上面的说明，第一点其实就是变量作用域的规则，正常情况下我们定义的内部函数都会访问外部的词法作用域中的变量，不然这个函数就没必要写在函数的内部。而第二点恰恰又违背了作用域的规则，因为按照规则在内部函数词法作用域以外的地方是访问不到内部函数的。我们有三种方式来打破这种规则：<br><strong>1.通过return将内部函数返回给外部</strong></p>
+<pre><code> function foo(){
+    var a = 2;
+
+     function bar(){
+         console.log(a);
+     }
+
+     return bar; //返回内部函数
+}
+
+var baz = foo();
+baz();//2 
+</code></pre><p><strong>2.将内部函数以参数的形式传递给外部</strong></p>
+<pre><code>function foo(){
+    var a = 2;
+
+    function baz(){
+        console.log(a);
+    }
+    bar(baz); //内部函数baz以参数形式传递
+}
+
+function bar(fn){
+    fn();
+}
+
+foo();
+</code></pre><p><strong>3.将内部函数的引用传递给外部变量</strong>  </p>
+<pre><code>var fn;
+
+function foo(){
+    var a = 2;
+
+    function baz(){
+        console.log(a);
+    }
+
+    fn = baz;   //将baz分配给外部变量
+}
+
+function bar(){
+    fn();
+}
+
+foo();
+
+bar();//2
+</code></pre><p>小结：无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的的应用，之后无论在何处执行这个函数都会产生闭包。<br>###闭包的应用<br><strong>回调函数</strong><br>分析闭包的第二种类型，我们发现传递内部函数的其实就是回调函数。因此下面的情况就是闭包</p>
+<pre><code>function wait(message){
+    setTimeout(function timer(){
+        console.log(message);
+    },1000);
+}
+
+wait(&apos;Hello,closure!&apos;);  
+</code></pre></li>
+</ol>
+<p>内部函数timer被传递给了setTimeout(),而setTimeout是全局的方法，因此timer的执行是在wait作用域以外的地方完成的，同时timer保有对wait作用域中的message变量的引用，这样就形成了闭包。<br>同样的例子：  </p>
+<pre><code>function setupBot(name,selector){
+    $(selector).click(function activator(){
+        console.log(&apos;activating: &apos;+name);
+    });
+}
+setupBot(&apos;Closure Bot1&apos;,&apos;#bot_1&apos;);
+setupBot(&apos;closure Bot2&apos;,&apos;#bot_2&apos;);
+</code></pre><p>也形成了闭包。在定时器、事件监听器、Ajax请求、跨窗口通信、Web Workers或者任何其他的异步(或者同步)任务中，只要使用了回调函数，基本都会产生闭包，只是我们没有意识到而已。</p>
+<p><strong>保存作用域</strong><br>再看一个需求  </p>
+<pre><code>var node = document.getElementsByTagName(&apos;div&apos;);
+
+for(var i=0;i&lt;node.length;i&lt;len;i++){
+    node[i].onclick = function(){
+            alert(i);
+    }
+};
+</code></pre><p>假如这里有5个div，我们的本意是想依次给这5个div绑定click事件，当我们点击的div的时候，能弹出这个div对应的值。比如点第一个div弹出0，点第二个弹出1…<br>但实际当我们点击的时候，不管点那个div，弹出的都是5。为什么？因为当我们触发点击事件的时候这里的循环函数早就执行完了，i变成了5。因此从作用域链中找的i总是5。循环的时候并没有执行函数，只不过是把函数重复定义了5次而已。<br>我们按照闭包的特定试图去修复一下这个问题  </p>
+<pre><code>var node = document.getElementsByTagName(&apos;div&apos;);
+
+for(var i=0;i&lt;node.length;i++){
+    （function(i){
+         node[i].onclick = function(){
+            alert(i);
+        }
+    })(i)
+};
+</code></pre><p>这样就可以了，为什么？<br>我们给匿名函数包了一层自执行的匿名函数，同时在IIFE中声明了一个i变量，用于保存传入的i。这样内部匿名函数引用到的i不再是全局作用域中的i，而是IIFE中定义的i。这样就形成了跟类型3一样的闭包。<br>那么为什么IIFE中i的值是可变的呢？<br>这其实是闭包的一种特性。我们知道JS引擎具有垃圾回收机制，函数的作用域在函数执行完以后会被销毁。用于释放占用的内存空间。但是由于闭包中内部函数保有对外部函数变量(作用域)的引用，就会阻止这一进程的实现，这样就使得闭包具有了延长变量寿命的作用(或者叫保存函数作用域)。<br>再来看这个闭包我们就明白了，在每次循环中传入IIFE的i值被保存到了作用域中，整个循环过程创建了5个函数作用域，里面保存了不同的i值。这样就可以解释了。<br>也正是因为闭包保有函数作用域，导致内存无法释放，当循环的次数够大的时候会造成内存泄漏，导致浏览器崩溃。所以在使用闭包的时候一定要注意这种DOM节点的绑定，它会一直占用你的内存，不管你是否触发它。<br>继续看上面的例子，我们用的第3种类型改进的，如果用第1种是怎么样的呢？</p>
+<pre><code>var node = document.getElementsByTagName(&apos;div&apos;);
+
+for(var i=0;i&lt;node.length;i++){
+    //创建一个helper函数(闭包)
+    function helper(){
+        var j=i;
+        return function bar(){
+            alert(j);
+        }
+    }
+    node[i].onclick = helper();
+}
+</code></pre><p>这样就不用把DOM节点写进闭包了。同样上面的例子把节点的绑定写在外面也是可以的。再换一种实现   </p>
+<pre><code>var node = document.getElementsByTagName(&apos;div&apos;);
+
+for(var i=0;i&lt;node.length;i++){
+    //创建一个helper函数(闭包)
+    function helper(){
+        var j=i;
+        callback(function(){
+            alert(j);
+        });
+    }
+    function callback(fn){
+        node[i].onclick=fn;
+    } 
+  helper();
+}
+</code></pre><p>当然一般都不会这么去写…更多的是return的方法去实现闭包。  </p>
+<p><strong>变量的封装</strong><br>闭包可以帮助把一些不需要暴露在全局的变量封装成“私有变量”。例如下面的函数</p>
+<pre><code>var cache = {}; //用于缓存计算结果
+
+var mult = function(){
+    var args = Array.prototype.join.call(arguments,&apos;,&apos;);//args=&apos;1,2,3&apos;
+    if(cache[args]){   //查询缓存，如果有就直接返回结果
+        return cache[args];
+    }
+    //计算
+    var a = 1;        
+    for(var i=0;i&lt;arguments.length;i++){
+        a=a*arguments[i];
+    }
+
+    return cache[args] = a; //将计算结果存入缓存对象
+};
+
+alert(mult(1,2,3));//6
+alert(mult(1,2,3));//6，直接从缓存中拿到的结果，不需要计算 
+</code></pre><p>变量cache只用在来mult函数中，没有必要暴露在全局作用域中。可以用函数封装起来。</p>
+<pre><code>var mult = (function(){
+
+    var cache = {}; 
+
+    return function(){
+        var args = Array.prototype.join.call(arguments,&apos;,&apos;);
+        if(cache[args]){
+            return cache[args];
+        }
+        var a = 1;
+        for(var i=0;i&lt;arguments.length;i++){
+            a=a*arguments[i];
+        }
+        return cache[args] = a;
+    };
+
+})();
+</code></pre><p>对上面的代码进行重构，提炼计算用的函数</p>
+<pre><code>var mult = (function(){
+
+    var cache = {}; 
+
+    var calculate = function(){ //提炼calculate函数
+        var a = 1;
+        for(var i=0;i&lt;arguments.length;i++){
+            a=a*arguments[i];
+        }
+        return a;
+    }
+    return function(){
+        var args = Array.prototype.join.call(arguments,&apos;,&apos;);
+        if(cache[args]){
+            return cache[args];
+        }
+        return cache[args] = calculate.apply(null,arguments);            
+        //注意调用calculate的方式
+    };
+})();
+</code></pre><p><strong>模块模式</strong><br>在面向对象的设计过程中，模块模式是很常见的。它具备两个必要条件：   </p>
+<ol>
+<li>必须有外部的封闭函数，该函数必须至少被调用一次(每次调用都会创建一个新的模块实例)。  </li>
+<li>封闭函数必须返回至少一个内部函数，这样内部函数才能在私有作用域中形成闭包，并且可以访问或者修改私有状态。  </li>
+</ol>
+<p>从这两个条件可以看出上面例子中mult函数就是一个模块。mult模块返回的是一个内部函数，也可以返回一个引用内部函数的对象。通过对象的方法来调用内部函数。  </p>
+<pre><code>var mult = (function(){
+
+    var cache = {}; 
+
+    function calculate(){ //提炼calculate函数
+        var a = 1;
+        for(var i=0;i&lt;arguments.length;i++){
+            a=a*arguments[i];
+        }
+        return a;
+    }
+    function result(){
+        var args = Array.prototype.join.call(arguments,&apos;,&apos;);
+        if(cache[args]){
+            return cache[args];
+        }
+        return cache[args] = calculate.apply(null,arguments);            
+        //注意调用calculate的方式
+    };
+    return{
+        result : result
+    }
+})();
+mult.result(1,2,3);//6
+</code></pre><p>这样来看，闭包在JS中无处不在，正确地理解闭包是JS学习中很必要的，理解了闭包我们就能识别闭包然后用它来做一些有用的事情。  </p>
+<p><strong>（完）</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">JS</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/08/Closure/">展开全文 >></a>
         </p>
       
 
@@ -692,133 +1236,10 @@ function hello(str){
 
 
   
-    <article id="post-git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/03/git/">git常用命令</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/03/git/" class="archive-article-date">
-  	<time datetime="2017-01-03T13:42:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>git是用于Linux内核开发的版本控制工具。与CVS、Subversion一类的集中式版本控制工具不同，它采用了分布式版本库的作法，不需要服务器端软件，就可以运作版本控制，使得源代码的发布和交流极其方便。git的速度很快，这对于诸如Linux内核这样的大项目来说自然很重要。git最为出色的是它的合并追踪（merge tracing）能力。  </p>
-</blockquote>
-<h2 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h2><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><p><strong>git init</strong>  </p>
-<p>创建一个本地文件夹dir，通过git init命令把这个文件夹编程git可以管理的仓库。在仓库里面创建的文件都能通过git操作。  </p>
-        
-          <a class="article-more-a" href="/2017/01/03/git/#more">MORE >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			 
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color1">Tools</a>
-        </li>
-      
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/03/git/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/02/hello-world/" class="archive-article-date">
-  	<time datetime="2017-01-02T15:45:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/02/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -2645,7 +3066,7 @@ function hello(str){
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">webpack</a>
+                <a href="javascript:void(0)" class="color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2657,11 +3078,15 @@ function hello(str){
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">css</a>
+                <a href="javascript:void(0)" class="color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">响应式</a>
+                <a href="javascript:void(0)" class="color1">Mobil</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">vue2.0</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2669,7 +3094,11 @@ function hello(str){
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">vue2.0</a>
+                <a href="javascript:void(0)" class="color4">响应式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">css</a>
               </li>
              
               <li class="article-tag-list-item">

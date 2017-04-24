@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 网络 | Nuluf&#39;s blog</title>
+  <title>JS中的闭包 | Nuluf&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nuluf's blog">
-<meta property="og:url" content="http://yoursite.com/tags/网络/index.html">
+  <meta name="description" content="###闭包是什么？闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。
+###广义的闭包也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。看个例子  
+function foo(){
+    var a = 2;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中的闭包">
+<meta property="og:url" content="http://yoursite.com/2017/02/08/Closure/index.html">
 <meta property="og:site_name" content="Nuluf's blog">
+<meta property="og:description" content="###闭包是什么？闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。
+###广义的闭包也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。看个例子  
+function foo(){
+    var a = 2;">
+<meta property="og:updated_time" content="2016-12-21T03:28:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nuluf's blog">
+<meta name="twitter:title" content="JS中的闭包">
+<meta name="twitter:description" content="###闭包是什么？闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。
+###广义的闭包也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。看个例子  
+function foo(){
+    var a = 2;">
   
     <link rel="alternative" href="/atom.xml" title="Nuluf&#39;s blog" type="application/atom+xml">
   
@@ -149,68 +162,377 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Closure" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/15/跨域技术/" class="archive-article-date">
-  	<time datetime="2017-02-15T15:57:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/15/跨域技术/">跨域资源访问</a>
+    <h1 class="article-title" itemprop="name">
+      JS中的闭包
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/02/08/Closure/" class="archive-article-date">
+  	<time datetime="2017-02-08T12:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###闭包是什么？<br>闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。</p>
+<p>###广义的闭包<br>也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。<br>有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。<br>看个例子  </p>
+<pre><code>function foo(){
+    var a = 2;
+    function bar(){
+        console.log(a);
+        debugger;
+    }
+    bar();
+}
+foo();
+
+//甚至直接这样
+var a = 2;
+(function IIFE(){
+    console.log(a);
+    debugger;
+})();
+</code></pre><p>这是闭包吗？子函数bar调用了foo函数作用域中的a变量，自执行函数IIFE()调用了全局作用域中a，符合上面闭包的说法。而且debugger的时候确实能在浏览器调试界面中看到closure。但是这种闭包其实没有太大的意义(后面会说明)，而且按照这个说法的话JS里几乎所有的函数都是闭包，因为所有的函数都是基于词法作用域逐级向上回溯的规则创建的，这显然不符合我们的理解。  </p>
+<p>###狭义的闭包<br>我们通常所讲的闭包是狭义上的闭包，它的形成具有两个特点：  </p>
+<ol>
+<li>内部函数访问了所在词法作用域中的变量(即外部函数作用域中的变量)；  </li>
+<li><p>该内部函数在所引用的变量所在的词法作用域之外的地方执行。<br>根据上面的狭义的闭包的说明，我们看几个例子<br>###闭包的三种类型<br>关于上面的说明，第一点其实就是变量作用域的规则，正常情况下我们定义的内部函数都会访问外部的词法作用域中的变量，不然这个函数就没必要写在函数的内部。而第二点恰恰又违背了作用域的规则，因为按照规则在内部函数词法作用域以外的地方是访问不到内部函数的。我们有三种方式来打破这种规则：<br><strong>1.通过return将内部函数返回给外部</strong></p>
+<pre><code> function foo(){
+    var a = 2;
+
+     function bar(){
+         console.log(a);
+     }
+
+     return bar; //返回内部函数
+}
+
+var baz = foo();
+baz();//2 
+</code></pre><p><strong>2.将内部函数以参数的形式传递给外部</strong></p>
+<pre><code>function foo(){
+    var a = 2;
+
+    function baz(){
+        console.log(a);
+    }
+    bar(baz); //内部函数baz以参数形式传递
+}
+
+function bar(fn){
+    fn();
+}
+
+foo();
+</code></pre><p><strong>3.将内部函数的引用传递给外部变量</strong>  </p>
+<pre><code>var fn;
+
+function foo(){
+    var a = 2;
+
+    function baz(){
+        console.log(a);
+    }
+
+    fn = baz;   //将baz分配给外部变量
+}
+
+function bar(){
+    fn();
+}
+
+foo();
+
+bar();//2
+</code></pre><p>小结：无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的的应用，之后无论在何处执行这个函数都会产生闭包。<br>###闭包的应用<br><strong>回调函数</strong><br>分析闭包的第二种类型，我们发现传递内部函数的其实就是回调函数。因此下面的情况就是闭包</p>
+<pre><code>function wait(message){
+    setTimeout(function timer(){
+        console.log(message);
+    },1000);
+}
+
+wait(&apos;Hello,closure!&apos;);  
+</code></pre></li>
+</ol>
+<p>内部函数timer被传递给了setTimeout(),而setTimeout是全局的方法，因此timer的执行是在wait作用域以外的地方完成的，同时timer保有对wait作用域中的message变量的引用，这样就形成了闭包。<br>同样的例子：  </p>
+<pre><code>function setupBot(name,selector){
+    $(selector).click(function activator(){
+        console.log(&apos;activating: &apos;+name);
+    });
+}
+setupBot(&apos;Closure Bot1&apos;,&apos;#bot_1&apos;);
+setupBot(&apos;closure Bot2&apos;,&apos;#bot_2&apos;);
+</code></pre><p>也形成了闭包。在定时器、事件监听器、Ajax请求、跨窗口通信、Web Workers或者任何其他的异步(或者同步)任务中，只要使用了回调函数，基本都会产生闭包，只是我们没有意识到而已。</p>
+<p><strong>保存作用域</strong><br>再看一个需求  </p>
+<pre><code>var node = document.getElementsByTagName(&apos;div&apos;);
+
+for(var i=0;i&lt;node.length;i&lt;len;i++){
+    node[i].onclick = function(){
+            alert(i);
+    }
+};
+</code></pre><p>假如这里有5个div，我们的本意是想依次给这5个div绑定click事件，当我们点击的div的时候，能弹出这个div对应的值。比如点第一个div弹出0，点第二个弹出1…<br>但实际当我们点击的时候，不管点那个div，弹出的都是5。为什么？因为当我们触发点击事件的时候这里的循环函数早就执行完了，i变成了5。因此从作用域链中找的i总是5。循环的时候并没有执行函数，只不过是把函数重复定义了5次而已。<br>我们按照闭包的特定试图去修复一下这个问题  </p>
+<pre><code>var node = document.getElementsByTagName(&apos;div&apos;);
+
+for(var i=0;i&lt;node.length;i++){
+    （function(i){
+         node[i].onclick = function(){
+            alert(i);
+        }
+    })(i)
+};
+</code></pre><p>这样就可以了，为什么？<br>我们给匿名函数包了一层自执行的匿名函数，同时在IIFE中声明了一个i变量，用于保存传入的i。这样内部匿名函数引用到的i不再是全局作用域中的i，而是IIFE中定义的i。这样就形成了跟类型3一样的闭包。<br>那么为什么IIFE中i的值是可变的呢？<br>这其实是闭包的一种特性。我们知道JS引擎具有垃圾回收机制，函数的作用域在函数执行完以后会被销毁。用于释放占用的内存空间。但是由于闭包中内部函数保有对外部函数变量(作用域)的引用，就会阻止这一进程的实现，这样就使得闭包具有了延长变量寿命的作用(或者叫保存函数作用域)。<br>再来看这个闭包我们就明白了，在每次循环中传入IIFE的i值被保存到了作用域中，整个循环过程创建了5个函数作用域，里面保存了不同的i值。这样就可以解释了。<br>也正是因为闭包保有函数作用域，导致内存无法释放，当循环的次数够大的时候会造成内存泄漏，导致浏览器崩溃。所以在使用闭包的时候一定要注意这种DOM节点的绑定，它会一直占用你的内存，不管你是否触发它。<br>继续看上面的例子，我们用的第3种类型改进的，如果用第1种是怎么样的呢？</p>
+<pre><code>var node = document.getElementsByTagName(&apos;div&apos;);
+
+for(var i=0;i&lt;node.length;i++){
+    //创建一个helper函数(闭包)
+    function helper(){
+        var j=i;
+        return function bar(){
+            alert(j);
+        }
+    }
+    node[i].onclick = helper();
+}
+</code></pre><p>这样就不用把DOM节点写进闭包了。同样上面的例子把节点的绑定写在外面也是可以的。再换一种实现   </p>
+<pre><code>var node = document.getElementsByTagName(&apos;div&apos;);
+
+for(var i=0;i&lt;node.length;i++){
+    //创建一个helper函数(闭包)
+    function helper(){
+        var j=i;
+        callback(function(){
+            alert(j);
+        });
+    }
+    function callback(fn){
+        node[i].onclick=fn;
+    } 
+  helper();
+}
+</code></pre><p>当然一般都不会这么去写…更多的是return的方法去实现闭包。  </p>
+<p><strong>变量的封装</strong><br>闭包可以帮助把一些不需要暴露在全局的变量封装成“私有变量”。例如下面的函数</p>
+<pre><code>var cache = {}; //用于缓存计算结果
+
+var mult = function(){
+    var args = Array.prototype.join.call(arguments,&apos;,&apos;);//args=&apos;1,2,3&apos;
+    if(cache[args]){   //查询缓存，如果有就直接返回结果
+        return cache[args];
+    }
+    //计算
+    var a = 1;        
+    for(var i=0;i&lt;arguments.length;i++){
+        a=a*arguments[i];
+    }
+
+    return cache[args] = a; //将计算结果存入缓存对象
+};
+
+alert(mult(1,2,3));//6
+alert(mult(1,2,3));//6，直接从缓存中拿到的结果，不需要计算 
+</code></pre><p>变量cache只用在来mult函数中，没有必要暴露在全局作用域中。可以用函数封装起来。</p>
+<pre><code>var mult = (function(){
+
+    var cache = {}; 
+
+    return function(){
+        var args = Array.prototype.join.call(arguments,&apos;,&apos;);
+        if(cache[args]){
+            return cache[args];
+        }
+        var a = 1;
+        for(var i=0;i&lt;arguments.length;i++){
+            a=a*arguments[i];
+        }
+        return cache[args] = a;
+    };
+
+})();
+</code></pre><p>对上面的代码进行重构，提炼计算用的函数</p>
+<pre><code>var mult = (function(){
+
+    var cache = {}; 
+
+    var calculate = function(){ //提炼calculate函数
+        var a = 1;
+        for(var i=0;i&lt;arguments.length;i++){
+            a=a*arguments[i];
+        }
+        return a;
+    }
+    return function(){
+        var args = Array.prototype.join.call(arguments,&apos;,&apos;);
+        if(cache[args]){
+            return cache[args];
+        }
+        return cache[args] = calculate.apply(null,arguments);            
+        //注意调用calculate的方式
+    };
+})();
+</code></pre><p><strong>模块模式</strong><br>在面向对象的设计过程中，模块模式是很常见的。它具备两个必要条件：   </p>
+<ol>
+<li>必须有外部的封闭函数，该函数必须至少被调用一次(每次调用都会创建一个新的模块实例)。  </li>
+<li>封闭函数必须返回至少一个内部函数，这样内部函数才能在私有作用域中形成闭包，并且可以访问或者修改私有状态。  </li>
+</ol>
+<p>从这两个条件可以看出上面例子中mult函数就是一个模块。mult模块返回的是一个内部函数，也可以返回一个引用内部函数的对象。通过对象的方法来调用内部函数。  </p>
+<pre><code>var mult = (function(){
+
+    var cache = {}; 
+
+    function calculate(){ //提炼calculate函数
+        var a = 1;
+        for(var i=0;i&lt;arguments.length;i++){
+            a=a*arguments[i];
+        }
+        return a;
+    }
+    function result(){
+        var args = Array.prototype.join.call(arguments,&apos;,&apos;);
+        if(cache[args]){
+            return cache[args];
+        }
+        return cache[args] = calculate.apply(null,arguments);            
+        //注意调用calculate的方式
+    };
+    return{
+        result : result
+    }
+})();
+mult.result(1,2,3);//6
+</code></pre><p>这样来看，闭包在JS中无处不在，正确地理解闭包是JS学习中很必要的，理解了闭包我们就能识别闭包然后用它来做一些有用的事情。  </p>
+<p><strong>（完）</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
 			 
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color5">HTTP</a>
-        </li>
-       
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color3">网络</a>
-        </li>
-       
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color3">面试</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">JS</a>
         </li>
       
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/08/Closure/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/02/10/responsiveweb/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          响应式web开发
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/01/09/布局解决方案之多列布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">布局解决方案之多列布局</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+	<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+	<script>
+	var cloudTieConfig = {
+	  url: document.location.href, 
+	  sourceId: "",
+	  productKey: "bfea36db120a4c03a33a24f567b9dfe9",
+	  target: "cloud-tie-wrapper"
+	};
+	var yunManualLoad = true;
+	Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+	</script>
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -233,9 +555,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
