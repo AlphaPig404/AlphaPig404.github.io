@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JS中的闭包 | Nuluf&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###闭包是什么？闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。
-###广义的闭包也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。">
+  <meta name="description" content="闭包是什么？闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。
+广义的闭包也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS中的闭包">
 <meta property="og:url" content="http://yoursite.com/2017/02/08/Closure/index.html">
 <meta property="og:site_name" content="Nuluf's blog">
-<meta property="og:description" content="###闭包是什么？闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。
-###广义的闭包也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。">
-<meta property="og:updated_time" content="2017-04-24T09:59:02.000Z">
+<meta property="og:description" content="闭包是什么？闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。
+广义的闭包也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。">
+<meta property="og:updated_time" content="2017-04-25T01:35:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS中的闭包">
-<meta name="twitter:description" content="###闭包是什么？闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。
-###广义的闭包也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。">
+<meta name="twitter:description" content="闭包是什么？闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。
+广义的闭包也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。">
   
     <link rel="alternative" href="/atom.xml" title="Nuluf&#39;s blog" type="application/atom+xml">
   
@@ -176,8 +176,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###闭包是什么？<br>闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。</p>
-<p>###广义的闭包<br>也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。<br>有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。</p>
+        <h3 id="闭包是什么？"><a href="#闭包是什么？" class="headerlink" title="闭包是什么？"></a>闭包是什么？</h3><p>闭包是基于词法作用域书写代码时所产生的自然结果，你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在JS代码中随处可见。因此我们需要有能力去辨别和主动使用它。</p>
+<h3 id="广义的闭包"><a href="#广义的闭包" class="headerlink" title="广义的闭包"></a>广义的闭包</h3><p>也因为闭包没有一个固定的概念，不同的人对于闭包的理解都不尽相同。<br>有人会说：当子函数调用了父级作用域中的变量时就产生了闭包。</p>
 <a id="more"></a>        
 <p>看个例子 </p>
 <pre><code>function foo(){
@@ -196,11 +196,13 @@ var a = 2;
     console.log(a);
     debugger;
 })();
-</code></pre><p>这是闭包吗？子函数bar调用了foo函数作用域中的a变量，自执行函数IIFE()调用了全局作用域中a，符合上面闭包的说法。而且debugger的时候确实能在浏览器调试界面中看到closure。但是这种闭包其实没有太大的意义(后面会说明)，而且按照这个说法的话JS里几乎所有的函数都是闭包，因为所有的函数都是基于词法作用域逐级向上回溯的规则创建的，这显然不符合我们的理解。  </p>
-<p>###狭义的闭包<br>我们通常所讲的闭包是狭义上的闭包，它的形成具有两个特点：  </p>
+</code></pre><p>这是闭包吗？子函数bar调用了foo函数作用域中的a变量，自执行函数IIFE()调用了全局作用域中a，符合上面闭包的说法。而且debugger的时候确实能在浏览器调试界面中看到closure。但是这种闭包其实没有太大的意义(后面会说明)，而且按照这个说法的话JS里几乎所有的函数都是闭包，因为所有的函数都是基于词法作用域逐级向上回溯的规则创建的，这显然不符合我们的理解。</p>
+<h3 id="狭义的闭包"><a href="#狭义的闭包" class="headerlink" title="狭义的闭包"></a>狭义的闭包</h3><p>我们通常所讲的闭包是狭义上的闭包，它的形成具有两个特点：  </p>
 <ol>
 <li>内部函数访问了所在词法作用域中的变量(即外部函数作用域中的变量)；  </li>
-<li><p>该内部函数在所引用的变量所在的词法作用域之外的地方执行。<br>根据上面的狭义的闭包的说明，我们看几个例子<br>###闭包的三种类型<br>关于上面的说明，第一点其实就是变量作用域的规则，正常情况下我们定义的内部函数都会访问外部的词法作用域中的变量，不然这个函数就没必要写在函数的内部。而第二点恰恰又违背了作用域的规则，因为按照规则在内部函数词法作用域以外的地方是访问不到内部函数的。我们有三种方式来打破这种规则：<br><strong>1.通过return将内部函数返回给外部</strong></p>
+<li>该内部函数在所引用的变量所在的词法作用域之外的地方执行。<br>根据上面的狭义的闭包的说明，我们看几个例子</li>
+</ol>
+<h3 id="闭包的三种类型"><a href="#闭包的三种类型" class="headerlink" title="闭包的三种类型"></a>闭包的三种类型</h3><p>关于上面的说明，第一点其实就是变量作用域的规则，正常情况下我们定义的内部函数都会访问外部的词法作用域中的变量，不然这个函数就没必要写在函数的内部。而第二点恰恰又违背了作用域的规则，因为按照规则在内部函数词法作用域以外的地方是访问不到内部函数的。我们有三种方式来打破这种规则：<br><strong>1.通过return将内部函数返回给外部</strong></p>
 <pre><code> function foo(){
     var a = 2;
 
@@ -248,7 +250,8 @@ function bar(){
 foo();
 
 bar();//2
-</code></pre><p>小结：无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的的应用，之后无论在何处执行这个函数都会产生闭包。<br>###闭包的应用<br><strong>回调函数</strong><br>分析闭包的第二种类型，我们发现传递内部函数的其实就是回调函数。因此下面的情况就是闭包</p>
+</code></pre><p>小结：无论通过何种手段将内部函数传递到所在的词法作用域以外，它都会持有对原始定义作用域的的应用，之后无论在何处执行这个函数都会产生闭包。</p>
+<h3 id="闭包的应用"><a href="#闭包的应用" class="headerlink" title="闭包的应用"></a>闭包的应用</h3><p><strong>回调函数</strong><br>分析闭包的第二种类型，我们发现传递内部函数的其实就是回调函数。因此下面的情况就是闭包</p>
 <pre><code>function wait(message){
     setTimeout(function timer(){
         console.log(message);
@@ -256,9 +259,7 @@ bar();//2
 }
 
 wait(&apos;Hello,closure!&apos;);  
-</code></pre></li>
-</ol>
-<p>内部函数timer被传递给了setTimeout(),而setTimeout是全局的方法，因此timer的执行是在wait作用域以外的地方完成的，同时timer保有对wait作用域中的message变量的引用，这样就形成了闭包。<br>同样的例子：  </p>
+</code></pre><p>内部函数timer被传递给了setTimeout(),而setTimeout是全局的方法，因此timer的执行是在wait作用域以外的地方完成的，同时timer保有对wait作用域中的message变量的引用，这样就形成了闭包。<br>同样的例子：  </p>
 <pre><code>function setupBot(name,selector){
     $(selector).click(function activator(){
         console.log(&apos;activating: &apos;+name);
@@ -2378,15 +2379,11 @@ mult.result(1,2,3);//6
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">vue2.0</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color1">Mobil</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">css</a>
+                <a href="javascript:void(0)" class="color2">vue2.0</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2399,6 +2396,10 @@ mult.result(1,2,3);//6
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">css</a>
               </li>
             
             <div class="clearfix"></div>

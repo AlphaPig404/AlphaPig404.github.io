@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Nuluf's blog">
 <meta property="og:description" content="关于移动端适配的问题&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&amp;quot;/&amp;gt;
 目前的做法是设置meta标签，用750/640的设计稿来布局，简单粗暴。也有推崇">
-<meta property="og:updated_time" content="2017-04-24T09:59:48.000Z">
+<meta property="og:updated_time" content="2017-04-24T10:03:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端常见问题集锦">
 <meta name="twitter:description" content="关于移动端适配的问题&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&amp;quot;/&amp;gt;
@@ -184,10 +184,13 @@ html { font-size: 100px; }
 @media(min-width: 400px) { html { font-size: 125px; } }
 @media(min-width: 640px) { html { font-size: 200px; } }
 给手机设置100px的字体大小；对于320px的手机匹配是100px，其他手机都是等比例匹配，因此设计稿上是多少像素的话，那么转换为rem的时候，rem = 设计像素/100即可
-</code></pre><a id="more"></a>
-<h2 id="禁用a-button-input-optgroup-select-textarea等标签背景变暗"><a href="#禁用a-button-input-optgroup-select-textarea等标签背景变暗" class="headerlink" title="禁用a,button,input,optgroup,select,textarea等标签背景变暗"></a>禁用a,button,input,optgroup,select,textarea等标签背景变暗</h2><p>在移动端使用a标签做按钮的时候或者文字连接的时候，点击按钮会出现一个 “暗色的”背景，比如如下代码：<br>  \<a href="">button1\</a><br>  \<input type="button" value="提交"><br>在移动端点击后 会出现”暗色”的背景，这时候我们需要在css加入如下代码即可：</p>
+</code></pre><h2 id="禁用a-button-input-optgroup-select-textarea等标签背景变暗"><a href="#禁用a-button-input-optgroup-select-textarea等标签背景变暗" class="headerlink" title="禁用a,button,input,optgroup,select,textarea等标签背景变暗"></a>禁用a,button,input,optgroup,select,textarea等标签背景变暗</h2><p>在移动端使用a标签做按钮的时候或者文字连接的时候，点击按钮会出现一个 “暗色的”背景，比如如下代码：  </p>
+<a id="more"></a>
+<pre><code>&lt;a href=&quot;&quot;&gt;button1&lt;/a&gt;  
+&lt;input type=&quot;button&quot; value=&quot;提交&quot;/&gt;
+</code></pre><p>在移动端点击后 会出现”暗色”的背景，这时候我们需要在css加入如下代码即可：</p>
 <pre><code>a,button,input,optgroup,select,textarea{
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 </code></pre><h2 id="meta基础知识点："><a href="#meta基础知识点：" class="headerlink" title="meta基础知识点："></a>meta基础知识点：</h2><ol>
 <li><p>页面窗口自动调整到设备宽度，并禁止用户及缩放页面。</p>
@@ -2267,15 +2270,11 @@ user-select: none;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">vue2.0</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color1">Mobil</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">css</a>
+                <a href="javascript:void(0)" class="color2">vue2.0</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2288,6 +2287,10 @@ user-select: none;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">css</a>
               </li>
             
             <div class="clearfix"></div>
